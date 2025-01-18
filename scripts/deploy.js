@@ -12,13 +12,15 @@ async function main() {
   const friendTokenAddress = await friendToken.getAddress();
   console.log("FriendToken deployed to:", friendTokenAddress);
 
-  // Deploy CreditTokenFactory (not yet created, but we log expected use here)
-  // console.log("Deploying CreditTokenFactory...");
-  // const CreditTokenFactory = await hre.ethers.getContractFactory("CreditTokenFactory");
-  // const creditTokenFactory = await CreditTokenFactory.deploy();
-  // await creditTokenFactory.waitForDeployment();
-  // const creditTokenFactoryAddress = await creditTokenFactory.getAddress();
-  // console.log("CreditTokenFactory deployed to:", creditTokenFactoryAddress);
+  // Deploy CreditTokenFactory
+  console.log("Deploying CreditTokenFactory...");
+  const CreditTokenFactory = await hre.ethers.getContractFactory(
+    "CreditTokenFactory"
+  );
+  const creditTokenFactory = await CreditTokenFactory.deploy();
+  await creditTokenFactory.waitForDeployment();
+  const creditTokenFactoryAddress = await creditTokenFactory.getAddress();
+  console.log("CreditTokenFactory deployed to:", creditTokenFactoryAddress);
 }
 
 main()
