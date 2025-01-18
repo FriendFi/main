@@ -1,0 +1,31 @@
+{
+  "name": "friendfi",
+  "version": "1.0.0",
+  "description": "FriendFi: Tokenizing credit and enabling C2C lending",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network base"
+  },
+  "keywords": [
+    "defi",
+    "socialfi",
+    "credit",
+    "lending",
+    "tokenization",
+    "blockchain",
+    "ethereum",
+    "base"
+  ],
+  "author": "FriendFi Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.18.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
+    "dotenv": "^16.3.1"
+  }
+}
