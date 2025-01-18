@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendFi</title>
+  </head>
+  <body>
+    <h1>FriendFi - Tokenize Your Credit</h1>
+
+    <button id="connectButton">Connect Wallet</button>
+
+    <div>
+      <h2>Set Credit Score (for testing)</h2>
+      <input type="number" id="scoreInput" placeholder="Score" />
+      <button id="setScoreButton">Set Score</button>
+    </div>
+
+    <div>
+      <h2>Create Credit Token</h2>
+      <input type="text" id="tokenName" placeholder="Token Name" />
+      <input type="text" id="tokenSymbol" placeholder="Token Symbol" />
+      <button id="createTokenButton">Create Token</button>
+      <p id="creditTokenAddress"></p>
+    </div>
+
+    <div>
+      <h2>Create Loan</h2>
+      <input type="number" id="loanPrincipal" placeholder="Principal (FRIEND)" />
+      <input
+        type="number"
+        id="loanInterest"
+        placeholder="Interest Rate (bps)"
+      />
+      <input type="number" id="loanDuration" placeholder="Duration (seconds)" />
+      <button id="createLoanButton">Create Loan</button>
+      <p id="loanId"></p>
+    </div>
+
+    <div>
+      <h2>Repay Loan</h2>
+      <input type="number" id="repayLoanId" placeholder="Loan ID" />
+      <button id="repayLoanButton">Repay Loan</button>
+    </div>
+    
+    <div>
+      <h2>Liquidate Loan</h2>
+      <input type="number" id="liquidateLoanId" placeholder="Loan ID" />
+      <button id="liquidateLoanButton">Liquidate Loan</button>
+    </div>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" type="text/javascript"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
