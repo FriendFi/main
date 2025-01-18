@@ -12,11 +12,22 @@ async function main() {
   const friendTokenAddress = await friendToken.getAddress();
   console.log("FriendToken deployed to:", friendTokenAddress);
 
+  // Deploy MockGameScoreOracle
+  const MockGameScoreOracle = await hre.ethers.getContractFactory(
+    "MockGameScoreOracle"
+  );
+  const mockGameScoreOracle = await MockGameScoreOracle.deploy();
+  await mockGameScoreOracle.waitForDeployment();
+  const mockGameScoreOracleAddress = await mockGameScoreOracle.getAddress();
+  console.log("MockGameScoreOracle deployed to:", mockGameScoreOracleAddress);
+
   // Deploy CreditTokenFactory
   const CreditTokenFactory = await hre.ethers.getContractFactory(
     "CreditTokenFactory"
   );
-  const creditTokenFactory = await CreditTokenFactory.deploy();
+  const creditTokenFactory = await CreditTokenFactory.deploy(
+    mockGameScoreOracleAddress
+  );
   await creditTokenFactory.waitForDeployment();
   const creditTokenFactoryAddress = await creditTokenFactory.getAddress();
   console.log("CreditTokenFactory deployed to:", creditTokenFactoryAddress);
