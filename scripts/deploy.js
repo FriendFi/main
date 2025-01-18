@@ -13,7 +13,6 @@ async function main() {
   console.log("FriendToken deployed to:", friendTokenAddress);
 
   // Deploy CreditTokenFactory
-  console.log("Deploying CreditTokenFactory...");
   const CreditTokenFactory = await hre.ethers.getContractFactory(
     "CreditTokenFactory"
   );
@@ -21,6 +20,16 @@ async function main() {
   await creditTokenFactory.waitForDeployment();
   const creditTokenFactoryAddress = await creditTokenFactory.getAddress();
   console.log("CreditTokenFactory deployed to:", creditTokenFactoryAddress);
+
+  // Deploy LendingPool
+  const LendingPool = await hre.ethers.getContractFactory("LendingPool");
+  const lendingPool = await LendingPool.deploy(
+    friendTokenAddress,
+    creditTokenFactoryAddress
+  );
+  await lendingPool.waitForDeployment();
+  const lendingPoolAddress = await lendingPool.getAddress();
+  console.log("LendingPool deployed to:", lendingPoolAddress);
 }
 
 main()
