@@ -27,3 +27,6 @@ module.exports = {
     ],
   },
 };
+
+require("./tasks/getFriendTokenBalance");
+require("./tasks/getCreditTokenBalance");
